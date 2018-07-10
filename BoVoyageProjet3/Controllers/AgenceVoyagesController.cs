@@ -19,6 +19,13 @@ namespace BoVoyageProjet3.Controllers
         private BoVoyageDbContext db = new BoVoyageDbContext();
 
         // GET: api/AgenceVoyages
+        /// <summary>
+        /// Retourne la liste des Agences
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         public IQueryable<AgenceVoyage> GetAgencesVoyage()
         {
             return db.AgencesVoyage;
