@@ -13,6 +13,7 @@ using BoVoyageProjet3.Models;
 
 namespace BoVoyageProjet3.Controllers
 {
+    [RoutePrefix("api/participants")]
     public class ParticipantsController : ApiController
     {
         private BoVoyageDbContext db = new BoVoyageDbContext();
@@ -39,6 +40,7 @@ namespace BoVoyageProjet3.Controllers
         /// </remarks>
         /// <returns></returns>
         [ResponseType(typeof(Participant))]
+        [Route("{id:int}")]
         public IHttpActionResult GetParticipant(int id)
         {
             Participant participant = db.Participants.Find(id);
@@ -59,6 +61,7 @@ namespace BoVoyageProjet3.Controllers
         /// </remarks>
         /// <returns></returns>
         [ResponseType(typeof(void))]
+        [Route("{id:int}")]
         public IHttpActionResult PutParticipant(int id, Participant participant)
         {
             if (!ModelState.IsValid)
@@ -123,6 +126,7 @@ namespace BoVoyageProjet3.Controllers
         /// </remarks>
         /// <returns></returns>
         [ResponseType(typeof(Participant))]
+        [Route("{id:int}")]
         public IHttpActionResult DeleteParticipant(int id)
         {
             Participant participant = db.Participants.Find(id);
