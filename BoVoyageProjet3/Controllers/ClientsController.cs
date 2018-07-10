@@ -13,6 +13,7 @@ using BoVoyageProjet3.Models;
 
 namespace BoVoyageProjet3.Controllers
 {
+    [RoutePrefix("api/clients")]
     public class ClientsController : ApiController
     {
         private BoVoyageDbContext db = new BoVoyageDbContext();
@@ -25,6 +26,7 @@ namespace BoVoyageProjet3.Controllers
 
         // GET: api/Clients/5
         [ResponseType(typeof(Client))]
+        [Route("{id:int}")]
         public IHttpActionResult GetClient(int id)
         {
             Client client = db.Clients.Find(id);
@@ -36,8 +38,16 @@ namespace BoVoyageProjet3.Controllers
             return Ok(client);
         }
 
+        [ResponseType(typeof(Client))]
+        [Route("{nom}")]
+        public IQueryable<Client> GetClient(string nom)
+        {
+            return db.Clients.Where(x => x.Nom.Contains(nom));
+        }
+
         // PUT: api/Clients/5
         [ResponseType(typeof(void))]
+        [Route("{id:int}")]
         public IHttpActionResult PutClient(int id, Client client)
         {
             if (!ModelState.IsValid)
@@ -88,6 +98,7 @@ namespace BoVoyageProjet3.Controllers
 
         // DELETE: api/Clients/5
         [ResponseType(typeof(Client))]
+        [Route("{id:int}")]
         public IHttpActionResult DeleteClient(int id)
         {
             Client client = db.Clients.Find(id);

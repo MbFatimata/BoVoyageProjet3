@@ -99,7 +99,7 @@
     <Content Include="Front\RechercherAgenceVoyage.html" />
     <Content Include="Front\CreerClient.html" />
     <Content Include="Front\Home.html" />
-    <Content Include="Front\RechercheClient.html" />
+    <Content Include="Front\RechercherClient.html" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
