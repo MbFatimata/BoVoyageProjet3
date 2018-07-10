@@ -57,8 +57,8 @@ namespace BoVoyageProjet3.Migrations
                         VoyageID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.Clients", t => t.ClientID, cascadeDelete: true)
-                .ForeignKey("dbo.Voyages", t => t.VoyageID, cascadeDelete: true)
+                .ForeignKey("dbo.Clients", t => t.ClientID, cascadeDelete: false)
+                .ForeignKey("dbo.Voyages", t => t.VoyageID, cascadeDelete: false)
                 .Index(t => t.ClientID)
                 .Index(t => t.VoyageID);
             
@@ -75,8 +75,8 @@ namespace BoVoyageProjet3.Migrations
                         AgenceID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.AgenceVoyages", t => t.AgenceID, cascadeDelete: true)
-                .ForeignKey("dbo.Destinations", t => t.DestinationID, cascadeDelete: true)
+                .ForeignKey("dbo.AgenceVoyages", t => t.AgenceID, cascadeDelete: false)
+                .ForeignKey("dbo.Destinations", t => t.DestinationID, cascadeDelete: false)
                 .Index(t => t.DestinationID)
                 .Index(t => t.AgenceID);
             
@@ -96,7 +96,7 @@ namespace BoVoyageProjet3.Migrations
                         Age = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.DossierReservations", t => t.DossierReservationID, cascadeDelete: true)
+                .ForeignKey("dbo.DossierReservations", t => t.DossierReservationID, cascadeDelete: false)
                 .Index(t => t.DossierReservationID);
             
         }
