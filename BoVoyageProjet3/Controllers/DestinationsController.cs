@@ -20,12 +20,26 @@ namespace BoVoyageProjet3.Controllers
         private BoVoyageDbContext db = new BoVoyageDbContext();
 
         // GET: api/Destinations
+        /// <summary>
+        /// Retourne la liste des destinations
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         public IQueryable<Destination> GetDestinations()
         {
             return db.Destinations;
         }
 
         // GET: api/Destinations/5
+        /// <summary>
+        /// Retourne une destination selon son identifiant
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(Destination))]
         [Route("{id:int}")]
         public IHttpActionResult GetDestination(int id)
@@ -39,7 +53,14 @@ namespace BoVoyageProjet3.Controllers
             return Ok(destination);
         }
 
-        // PUT: api/Destinations/5
+        // PUT: api/Destinations/5*
+        /// <summary>
+        /// Modifier une destination
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(void))]
         [Route("{id:int}")]
         public IHttpActionResult PutDestination(int id, Destination destination)
@@ -76,6 +97,13 @@ namespace BoVoyageProjet3.Controllers
         }
 
         // POST: api/Destinations
+        /// <summary>
+        /// Ajouter une destination
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(Destination))]
         [Route("{continent}")]
         public IHttpActionResult PostDestination(Destination destination)
@@ -92,6 +120,13 @@ namespace BoVoyageProjet3.Controllers
         }
 
         // DELETE: api/Destinations/5
+        /// <summary>
+        /// Supprimer une destination
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(Destination))]
         [Route("{id:int}")]
         public IHttpActionResult DeleteDestination(int id)

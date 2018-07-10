@@ -19,12 +19,26 @@ namespace BoVoyageProjet3.Controllers
         private BoVoyageDbContext db = new BoVoyageDbContext();
 
         // GET: api/Clients
+        /// <summary>
+        /// Retourne la liste des Clients
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         public IQueryable<Client> GetClients()
         {
             return db.Clients;
         }
 
         // GET: api/Clients/5
+        /// <summary>
+        /// Retourne le client selon son identifiant
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(Client))]
         [Route("{id:int}")]
         public IHttpActionResult GetClient(int id)
@@ -38,6 +52,13 @@ namespace BoVoyageProjet3.Controllers
             return Ok(client);
         }
 
+        /// <summary>
+        /// Retourne le client selon son nom
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(Client))]
         [Route("{nom}")]
         public IQueryable<Client> GetClient(string nom)
@@ -46,6 +67,13 @@ namespace BoVoyageProjet3.Controllers
         }
 
         // PUT: api/Clients/5
+        /// <summary>
+        /// Modifier les informations d'un client à l'aide de son identifiants
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(void))]
         [Route("{id:int}")]
         public IHttpActionResult PutClient(int id, Client client)
@@ -82,6 +110,13 @@ namespace BoVoyageProjet3.Controllers
         }
 
         // POST: api/Clients
+        /// <summary>
+        /// Ajouter un client
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(Client))]
         public IHttpActionResult PostClient(Client client)
         {
@@ -97,6 +132,13 @@ namespace BoVoyageProjet3.Controllers
         }
 
         // DELETE: api/Clients/5
+        /// <summary>
+        /// Supprimer un client
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(Client))]
         [Route("{id:int}")]
         public IHttpActionResult DeleteClient(int id)
