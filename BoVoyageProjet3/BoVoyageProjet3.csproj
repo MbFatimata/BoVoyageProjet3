@@ -102,6 +102,7 @@
     <Content Include="Front\CreerAgenceVoyage.html" />
     <Content Include="Front\CreerDestination.html" />
     <Content Include="Front\CreerParticipant.html" />
+    <Content Include="Front\CreerVoyage.html" />
     <Content Include="Front\MenuGeneral.html" />
     <Content Include="Front\RechercherAgenceVoyage.html" />
     <Content Include="Front\CreerClient.html" />
