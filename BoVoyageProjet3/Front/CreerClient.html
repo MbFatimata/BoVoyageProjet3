@@ -11,32 +11,32 @@
             <div class="col-md-12">
                 <form role="form">
                     <div class="form-group">
-                        <label class="control-label" for="InputCivilite">Civilité</label>
-                        <input type="text" class="form-control" id="InputCivilite" placeholder="Civilité">
+                        <label class="control-label" for="InputCivilite">Civilite</label>
+                        <input type="text" class="form-control" id="inputCivilite" placeholder="Civilité">
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="InputNom">Nom</label>
-                        <input type="text" class="form-control" id="InputNom" placeholder="Entrer un Nom">
+                        <label class="control-label">Nom</label>
+                        <input type="text" class="form-control" id="inputNom" placeholder="Entrer un Nom">
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="InputPrenom">Prénom</label>
-                        <input type="text" class="form-control" id="InputPrenom" placeholder="Entrer un Prénom">
+                        <label class="control-label">Prenom</label>
+                        <input type="text" class="form-control" id="inputPrenom" placeholder="Entrer un Prénom">
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="InputAdresse">Adresse</label>
-                        <input type="text" class="form-control" id="InputAdresse" placeholder="Entrer une adresse">
+                        <label class="control-label">Adresse</label>
+                        <input type="text" class="form-control" id="inputAdresse" placeholder="Entrer une adresse">
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="InputTelephone">Téléphone</label>
-                        <input type="tel" class="form-control" id="InputTelephone" placeholder="Entrer un numéro de téléphone">
+                        <label class="control-label">Telephone</label>
+                        <input type="text" class="form-control" id="inputTelephone" placeholder="Entrer un numéro de téléphone">
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="InputEmail">Email</label>
+                        <label class="control-label">Email</label>
                         <input type="email" class="form-control" id="inputEmail" placeholder="Entrer un email">
 
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="InputDateNaissance">Date de Naissance</label>
+                        <label class="control-label">Date de Naissance</label>
                         <input type="date" class="form-control" id="inputDateNaissance">
 
                     </div>
@@ -50,15 +50,14 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
-    <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>-->
-
+   
     <script>
         $(document).ready(function () {
 
             $("form").submit(function (ev) {
                 let obj = {
                     Civilite: $("#inputCivilite").val(),
-                    Non: $("#inputNom").val(),
+                    Nom: $("#inputNom").val(),
                     Prenom: $("#inputPrenom").val(),
                     Adresse: $("#inputAdresse").val(),
                     Telephone: $("#inputTelephone").val(),
