@@ -99,16 +99,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Front\CreerAgenceVoyage.html" />
-    <Content Include="Front\CreerDestination.html" />
-    <Content Include="Front\CreerParticipant.html" />
-    <Content Include="Front\CreerVoyage.html" />
-    <Content Include="Front\MenuGeneral.html" />
-    <Content Include="Front\RechercherAgenceVoyage.html" />
-    <Content Include="Front\CreerClient.html" />
-    <Content Include="Front\Home.html" />
-    <Content Include="Front\RechercherClient.html" />
-    <Content Include="Front\RechercherDestination.html" />
+    <Content Include="Html\CreerAgenceVoyage.html" />
+    <Content Include="Html\CreerDestination.html" />
+    <Content Include="Html\CreerParticipant.html" />
+    <Content Include="Html\CreerVoyage.html" />
+    <Content Include="Html\MenuGeneral.html" />
+    <Content Include="Html\RechercherAgenceVoyage.html" />
+    <Content Include="Html\CreerClient.html" />
+    <Content Include="Html\Home.html" />
+    <Content Include="Html\RechercherClient.html" />
+    <Content Include="Html\RechercherDestination.html" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
