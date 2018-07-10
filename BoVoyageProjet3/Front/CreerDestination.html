@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Créer un client</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form role="form">
+                    <div class="form-group">
+                        <label class="control-label">Continent</label>
+                        <input type="text" class="form-control" id="inputContinent" placeholder="Entrer un continent">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Pays</label>
+                        <input type="text" class="form-control" id="inputPays" placeholder="Entrer un pays">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Region</label>
+                        <input type="text" class="form-control" id="inputRegion" placeholder="Entrer une région">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Description</label>
+                        <input type="text" class="form-control" id="inputDescription" placeholder="Entrer une description">
+                    </div>
+                 
+
+                    <button type="submit" class="btn btn-default">Enregistrer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("form").submit(function (ev) {
+                let obj = {
+                    Continent: $("#inputContinent").val(),
+                    Pays: $("#inputPays").val(),
+                    Region: $("#inputRegion").val(),
+                    Description: $("#inputDescription").val(),
+                    
+                };
+
+
+                $.ajax({
+                    url: 'http://localhost:54186/api/destinations',
+                    method: 'POST',
+                    data: obj,
+                    success: function (data) {
+                        alert(`Nouvelle destination enregitrée ${data.ID}`);
+                    }
+                });
+
+                ev.preventDefault();
+            });
+        });
+
+    </script>
+
+</body>
+</html>
