@@ -6,7 +6,7 @@ using System.Web;
 
 namespace BoVoyageProjet3.Models
 {
-    public class Personne:BaseModel
+    public abstract class Personne:BaseModel
     {
         [Required(ErrorMessage = "Le champ Civilite est obligatoire")]
         public string Civilite { get; set; }
