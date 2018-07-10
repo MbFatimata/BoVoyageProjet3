@@ -13,6 +13,8 @@ using BoVoyageProjet3.Models;
 
 namespace BoVoyageProjet3.Controllers
 {
+    [RoutePrefix("api/Continents")]
+
     public class DestinationsController : ApiController
     {
         private BoVoyageDbContext db = new BoVoyageDbContext();
@@ -25,6 +27,7 @@ namespace BoVoyageProjet3.Controllers
 
         // GET: api/Destinations/5
         [ResponseType(typeof(Destination))]
+        [Route("{id:int}")]
         public IHttpActionResult GetDestination(int id)
         {
             Destination destination = db.Destinations.Find(id);
@@ -38,6 +41,7 @@ namespace BoVoyageProjet3.Controllers
 
         // PUT: api/Destinations/5
         [ResponseType(typeof(void))]
+        [Route("{id:int}")]
         public IHttpActionResult PutDestination(int id, Destination destination)
         {
             if (!ModelState.IsValid)
@@ -73,6 +77,7 @@ namespace BoVoyageProjet3.Controllers
 
         // POST: api/Destinations
         [ResponseType(typeof(Destination))]
+        [Route("{continent}")]
         public IHttpActionResult PostDestination(Destination destination)
         {
             if (!ModelState.IsValid)
@@ -88,6 +93,7 @@ namespace BoVoyageProjet3.Controllers
 
         // DELETE: api/Destinations/5
         [ResponseType(typeof(Destination))]
+        [Route("{id:int}")]
         public IHttpActionResult DeleteDestination(int id)
         {
             Destination destination = db.Destinations.Find(id);
