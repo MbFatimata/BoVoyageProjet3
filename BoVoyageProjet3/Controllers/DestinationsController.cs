@@ -104,8 +104,7 @@ namespace BoVoyageProjet3.Controllers
         /// 
         /// </remarks>
         /// <returns></returns>
-        [ResponseType(typeof(Destination))]
-        [Route("{continent}")]
+        [ResponseType(typeof(Destination))]       
         public IHttpActionResult PostDestination(Destination destination)
         {
             if (!ModelState.IsValid)

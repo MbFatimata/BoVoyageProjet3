@@ -13,6 +13,8 @@ using BoVoyageProjet3.Models;
 
 namespace BoVoyageProjet3.Controllers
 {
+    [RoutePrefix("api/voyages")]
+
     public class VoyagesController : ApiController
     {
         private BoVoyageDbContext db = new BoVoyageDbContext();
@@ -31,7 +33,15 @@ namespace BoVoyageProjet3.Controllers
         }
 
         // GET: api/Voyages/5
+        /// <summary>
+        /// Afficher un voyage selon son ID
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(Voyage))]
+        [Route("{id:int}")]
         public IHttpActionResult GetVoyage(int id)
         {
             Voyage voyage = db.Voyages.Find(id);
@@ -52,6 +62,7 @@ namespace BoVoyageProjet3.Controllers
         /// </remarks>
         /// <returns></returns>
         [ResponseType(typeof(void))]
+        [Route("{id:int}")]
         public IHttpActionResult PutVoyage(int id, Voyage voyage)
         {
             if (!ModelState.IsValid)
@@ -116,6 +127,7 @@ namespace BoVoyageProjet3.Controllers
         /// </remarks>
         /// <returns></returns>
         [ResponseType(typeof(Voyage))]
+        [Route("{id:int}")]
         public IHttpActionResult DeleteVoyage(int id)
         {
             Voyage voyage = db.Voyages.Find(id);

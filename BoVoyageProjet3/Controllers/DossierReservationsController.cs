@@ -13,6 +13,7 @@ using BoVoyageProjet3.Models;
 
 namespace BoVoyageProjet3.Controllers
 {
+    [RoutePrefix("api/dossierReservations")]
     public class DossierReservationsController : ApiController
     {
         private BoVoyageDbContext db = new BoVoyageDbContext();
@@ -39,6 +40,7 @@ namespace BoVoyageProjet3.Controllers
         /// </remarks>
         /// <returns></returns>
         [ResponseType(typeof(DossierReservation))]
+        [Route("{id:int}")]
         public IHttpActionResult GetDossierReservation(int id)
         {
             DossierReservation dossierReservation = db.DossiersReservation.Find(id);
@@ -59,6 +61,7 @@ namespace BoVoyageProjet3.Controllers
         /// </remarks>
         /// <returns></returns>
         [ResponseType(typeof(void))]
+        [Route("{id:int}")]
         public IHttpActionResult PutDossierReservation(int id, DossierReservation dossierReservation)
         {
             if (!ModelState.IsValid)
@@ -123,6 +126,7 @@ namespace BoVoyageProjet3.Controllers
         /// </remarks>
         /// <returns></returns>
         [ResponseType(typeof(DossierReservation))]
+        [Route("{id:int}")]
         public IHttpActionResult DeleteDossierReservation(int id)
         {
             DossierReservation dossierReservation = db.DossiersReservation.Find(id);
