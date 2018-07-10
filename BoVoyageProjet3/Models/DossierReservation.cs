@@ -15,6 +15,10 @@ namespace BoVoyageProjet3.Models
         public int NombreParticipant { get; set; }
         public bool Assurance { get; set; }
 
+        public int ClientID { get; set; }
+        public int VoyageID { get; set; }
+
+
         [ForeignKey("ClientID")]
         public Client Clients { get; set; }
 

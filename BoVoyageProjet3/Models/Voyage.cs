@@ -13,6 +13,10 @@ namespace BoVoyageProjet3.Models
         public int PlacesDisponibles { get; set; }
         public decimal TarifToutCompris { get; set; }
 
+        public int DestinationID { get; set; }
+        public int AgenceID { get; set; }
+
+
         [ForeignKey("DestinationID")]
         public Destination Destinations { get; set; }
 

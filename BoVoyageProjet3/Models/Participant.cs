@@ -10,6 +10,8 @@ namespace BoVoyageProjet3.Models
     {        
         public double Reduction { get; set; }
 
+        public int DossierReservationID { get; set; }
+
         [ForeignKey("DossierReservationID")]
         public DossierReservation DossierReservation { get; set; }
         
