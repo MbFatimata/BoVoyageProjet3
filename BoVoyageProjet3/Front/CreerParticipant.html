@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Créer un client</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form role="form">
+                    <div class="form-group">
+                        <label class="control-label" for="InputCivilite">Civilite</label>
+                        <input type="text" class="form-control" id="inputCivilite" placeholder="Civilité">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Nom</label>
+                        <input type="text" class="form-control" id="inputNom" placeholder="Entrer un Nom">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Prenom</label>
+                        <input type="text" class="form-control" id="inputPrenom" placeholder="Entrer un Prénom">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Adresse</label>
+                        <input type="text" class="form-control" id="inputAdresse" placeholder="Entrer une adresse">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Telephone</label>
+                        <input type="text" class="form-control" id="inputTelephone" placeholder="Entrer un numéro de téléphone">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Date de Naissance</label>
+                        <input type="date" class="form-control" id="inputDateNaissance">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Numero de dossier</label>
+                        <input type="text" class="form-control" id="inputDossierReservationID" placeholder="Entrer le numéro du dossier de reservation">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Reduction</label>
+                        <input type="text" class="form-control" id="inputReduction" placeholder="Entrer la réduction">
+                    </div>
+
+                    <button type="submit" class="btn btn-default">Enregistrer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("form").submit(function (ev) {
+                let obj = {
+                    Civilite: $("#inputCivilite").val(),
+                    Nom: $("#inputNom").val(),
+                    Prenom: $("#inputPrenom").val(),
+                    Adresse: $("#inputAdresse").val(),
+                    Telephone: $("#inputTelephone").val(),                    
+                    DateNaissance: $("#inputDateNaissance").val(),
+                    DossierReservationID: $("#inputDossierReservationID").val(),
+                    Reduction: $("#inputReduction").val(),
+                };
+
+
+                $.ajax({
+                    url: 'http://localhost:54186/api/participants',
+                    method: 'POST',
+                    data: obj,
+                    success: function (data) {
+                        alert(`Nouveau client enregitrer ${data.ID}`);
+                    }
+                });
+
+                ev.preventDefault();
+            });
+        });
+
+    </script>
+
+</body>
+</html>
