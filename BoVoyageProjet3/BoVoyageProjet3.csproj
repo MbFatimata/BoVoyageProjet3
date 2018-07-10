@@ -101,6 +101,7 @@
   <ItemGroup>
     <Content Include="Html\CreerAgenceVoyage.html" />
     <Content Include="Html\CreerDestination.html" />
+    <Content Include="Html\CreerDossierReservation.html" />
     <Content Include="Html\CreerParticipant.html" />
     <Content Include="Html\CreerVoyage.html" />
     <Content Include="Html\MenuGeneral.html" />
