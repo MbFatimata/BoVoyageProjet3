@@ -91,12 +91,12 @@
     </Compile>
     <Compile Include="Models\AgenceVoyage.cs" />
     <Compile Include="Models\BaseModel.cs" />
-    <Compile Include="Models\Client.cs" />
-    <Compile Include="Models\Participant.cs" />
-    <Compile Include="Models\Personne.cs" />
     <Compile Include="Models\Destination.cs" />
     <Compile Include="Models\DossierReservation.cs" />
     <Compile Include="Models\Voyage.cs" />
+    <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\Participant.cs" />
+    <Compile Include="Models\Personne.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
