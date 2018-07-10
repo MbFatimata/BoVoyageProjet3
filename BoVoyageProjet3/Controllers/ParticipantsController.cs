@@ -18,12 +18,26 @@ namespace BoVoyageProjet3.Controllers
         private BoVoyageDbContext db = new BoVoyageDbContext();
 
         // GET: api/Participants
+        /// <summary>
+        /// Retourne la liste des participants
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         public IQueryable<Participant> GetParticipants()
         {
             return db.Participants;
         }
 
         // GET: api/Participants/5
+        /// <summary>
+        /// Retourne un participant selon son identifiant
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(Participant))]
         public IHttpActionResult GetParticipant(int id)
         {
@@ -37,6 +51,13 @@ namespace BoVoyageProjet3.Controllers
         }
 
         // PUT: api/Participants/5
+        /// <summary>
+        /// Modifier un participant
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(void))]
         public IHttpActionResult PutParticipant(int id, Participant participant)
         {
@@ -72,6 +93,13 @@ namespace BoVoyageProjet3.Controllers
         }
 
         // POST: api/Participants
+        /// <summary>
+        /// Ajouter un participant
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(Participant))]
         public IHttpActionResult PostParticipant(Participant participant)
         {
@@ -87,6 +115,13 @@ namespace BoVoyageProjet3.Controllers
         }
 
         // DELETE: api/Participants/5
+        /// <summary>
+        /// Supprimer un participant
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(Participant))]
         public IHttpActionResult DeleteParticipant(int id)
         {

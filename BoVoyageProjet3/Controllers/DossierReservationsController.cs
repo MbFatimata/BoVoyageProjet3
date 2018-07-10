@@ -18,12 +18,26 @@ namespace BoVoyageProjet3.Controllers
         private BoVoyageDbContext db = new BoVoyageDbContext();
 
         // GET: api/DossierReservations
+        /// <summary>
+        /// Retourne la liste des dossiers de réservation
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         public IQueryable<DossierReservation> GetDossiersReservation()
         {
             return db.DossiersReservation;
         }
 
         // GET: api/DossierReservations/5
+        /// <summary>
+        /// Retourne la liste des dossiers de réservation selon l'identifiant
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(DossierReservation))]
         public IHttpActionResult GetDossierReservation(int id)
         {
@@ -37,6 +51,13 @@ namespace BoVoyageProjet3.Controllers
         }
 
         // PUT: api/DossierReservations/5
+        /// <summary>
+        /// Modifier le dossier de reservation associé à l'identifiant choisi
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(void))]
         public IHttpActionResult PutDossierReservation(int id, DossierReservation dossierReservation)
         {
@@ -72,6 +93,13 @@ namespace BoVoyageProjet3.Controllers
         }
 
         // POST: api/DossierReservations
+        /// <summary>
+        /// Ajouter un dossier de réservation
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(DossierReservation))]
         public IHttpActionResult PostDossierReservation(DossierReservation dossierReservation)
         {
@@ -87,6 +115,13 @@ namespace BoVoyageProjet3.Controllers
         }
 
         // DELETE: api/DossierReservations/5
+        /// <summary>
+        /// Effacer un dossier de réservation
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(DossierReservation))]
         public IHttpActionResult DeleteDossierReservation(int id)
         {

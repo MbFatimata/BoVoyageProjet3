@@ -19,12 +19,26 @@ namespace BoVoyageProjet3.Controllers
         private BoVoyageDbContext db = new BoVoyageDbContext();
 
         // GET: api/AgenceVoyages
+        /// <summary>
+        /// Retourne la liste des Agences
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         public IQueryable<AgenceVoyage> GetAgencesVoyage()
         {
             return db.AgencesVoyage;
         }
 
         // GET: api/AgenceVoyages/5
+        /// <summary>
+        /// Retourne la l'agence selon son identifiant
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(AgenceVoyage))]
         [Route("{id:int}")]
         public IHttpActionResult GetAgenceVoyage(int id)
@@ -37,6 +51,14 @@ namespace BoVoyageProjet3.Controllers
 
             return Ok(agenceVoyage);
         }
+
+        /// <summary>
+        /// Retourne la liste d'agence dont le nom contient le texte entré
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(AgenceVoyage))]
         [Route("{nom}")]
         public IQueryable<AgenceVoyage> GetAgenceVoyage(string nom)
@@ -45,6 +67,13 @@ namespace BoVoyageProjet3.Controllers
         }
 
         // PUT: api/AgenceVoyages/5
+        /// <summary>
+        /// Modifie l'agence en fonction de son identifiant
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(void))]
         [Route("{id:int}")]
         public IHttpActionResult PutAgenceVoyage(int id, AgenceVoyage agenceVoyage)
@@ -81,6 +110,13 @@ namespace BoVoyageProjet3.Controllers
         }
 
         // POST: api/AgenceVoyages
+        /// <summary>
+        /// Ajouter une agence
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(AgenceVoyage))]
         public IHttpActionResult PostAgenceVoyage(AgenceVoyage agenceVoyage)
         {
@@ -96,6 +132,13 @@ namespace BoVoyageProjet3.Controllers
         }
 
         // DELETE: api/AgenceVoyages/5
+        /// <summary>
+        /// Effacer l'agence selon son identifiant
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(AgenceVoyage))]
         [Route("{id:int}")]
         public IHttpActionResult DeleteAgenceVoyage(int id)

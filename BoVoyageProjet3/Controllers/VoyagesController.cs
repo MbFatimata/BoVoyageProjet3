@@ -18,6 +18,13 @@ namespace BoVoyageProjet3.Controllers
         private BoVoyageDbContext db = new BoVoyageDbContext();
 
         // GET: api/Voyages
+        /// <summary>
+        /// Afficher les voyages
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         public IQueryable<Voyage> GetVoyages()
         {
             return db.Voyages;
@@ -37,6 +44,13 @@ namespace BoVoyageProjet3.Controllers
         }
 
         // PUT: api/Voyages/5
+        /// <summary>
+        /// Modifier un voyage
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(void))]
         public IHttpActionResult PutVoyage(int id, Voyage voyage)
         {
@@ -72,6 +86,13 @@ namespace BoVoyageProjet3.Controllers
         }
 
         // POST: api/Voyages
+        /// <summary>
+        /// Ajouter un voyage
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(Voyage))]
         public IHttpActionResult PostVoyage(Voyage voyage)
         {
@@ -87,6 +108,13 @@ namespace BoVoyageProjet3.Controllers
         }
 
         // DELETE: api/Voyages/5
+        /// <summary>
+        /// Supprimer un voyage
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
         [ResponseType(typeof(Voyage))]
         public IHttpActionResult DeleteVoyage(int id)
         {
