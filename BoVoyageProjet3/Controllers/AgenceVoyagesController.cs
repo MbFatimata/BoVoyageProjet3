@@ -13,8 +13,9 @@ using BoVoyageProjet3.Models;
 
 namespace BoVoyageProjet3.Controllers
 {
+    [RoutePrefix("api/agenceVoyages")]
     public class AgenceVoyagesController : ApiController
-    {
+    {        
         private BoVoyageDbContext db = new BoVoyageDbContext();
 
         // GET: api/AgenceVoyages
@@ -25,6 +26,7 @@ namespace BoVoyageProjet3.Controllers
 
         // GET: api/AgenceVoyages/5
         [ResponseType(typeof(AgenceVoyage))]
+        [Route("{id:int}")]
         public IHttpActionResult GetAgenceVoyage(int id)
         {
             AgenceVoyage agenceVoyage = db.AgencesVoyage.Find(id);
@@ -35,9 +37,16 @@ namespace BoVoyageProjet3.Controllers
 
             return Ok(agenceVoyage);
         }
+        [ResponseType(typeof(AgenceVoyage))]
+        [Route("{nom}")]
+        public IQueryable<AgenceVoyage> GetAgenceVoyage(string nom)
+        {
+            return db.AgencesVoyage.Where(x => x.Nom.Contains(nom));
+        }
 
         // PUT: api/AgenceVoyages/5
         [ResponseType(typeof(void))]
+        [Route("{id:int}")]
         public IHttpActionResult PutAgenceVoyage(int id, AgenceVoyage agenceVoyage)
         {
             if (!ModelState.IsValid)
@@ -88,6 +97,7 @@ namespace BoVoyageProjet3.Controllers
 
         // DELETE: api/AgenceVoyages/5
         [ResponseType(typeof(AgenceVoyage))]
+        [Route("{id:int}")]
         public IHttpActionResult DeleteAgenceVoyage(int id)
         {
             AgenceVoyage agenceVoyage = db.AgencesVoyage.Find(id);
