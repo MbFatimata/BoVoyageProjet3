@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web;
+
+namespace BoVoyageProjet3.Models
+{
+    public class DossierReservation :BaseModel
+    {
+        public string NumeroCarteBancaire { get; set; }
+        public decimal PrixTotal { get; set; }
+        public int NombreParticipant { get; set; }
+        public bool Assurance { get; set; }
+
+        [ForeignKey("ClientID")]
+        public Client Clients { get; set; }
+
+        [ForeignKey("VoyageID")]
+        public Voyage Voyages { get; set; }
+    }
+}
