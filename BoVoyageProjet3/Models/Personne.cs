@@ -20,7 +20,10 @@ namespace BoVoyageProjet3.Models
         public string Telephone { get; set; }
         [Required(ErrorMessage = "Le champ DateNaissance est obligatoire")]
         public DateTime DateNaissance { get; set; }
-        public int Age { get; set; }
+        public int Age
+        {
+            get { return (DateTime.Today - DateNaissance).Days / 365; }
+        }
         
     }
 }
