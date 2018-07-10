@@ -96,6 +96,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Front\CreerAgenceVoyage.html" />
     <Content Include="Front\RechercherAgenceVoyage.html" />
     <Content Include="Front\CreerClient.html" />
     <Content Include="Front\Home.html" />
