@@ -32,12 +32,12 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="InputEmail">Email</label>
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Entrer votre email">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Entrer un email">
 
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="InputDateNaissance">Date de Naissance</label>
-                        <input type="date" class="form-control" id="inputDateNaissance" placeholder="">
+                        <input type="date" class="form-control" id="inputDateNaissance">
 
                     </div>
 
@@ -50,42 +50,36 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
-    //<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>-->
 
     <script>
         $(document).ready(function () {
 
-            $.get("http://localhost:54186/api/clients", function (data) {
-                for (let item of data)
-                    $("#inputCategoryID").append(`<option value="${item.ID}">${item.Name}</option>`)
-            }
+            $("form").submit(function (ev) {
+                let obj = {
+                    Civilite: $("#inputCivilite").val(),
+                    Non: $("#inputNom").val(),
+                    Prenom: $("#inputPrenom").val(),
+                    Adresse: $("#inputAdresse").val(),
+                    Telephone: $("#inputTelephone").val(),
+                    Email: $("#inputEmail").val(),
+                    DateNaissance: $("#inputDateNaissance").val(),
+                };
+
+
+                $.ajax({
+                    url: 'http://localhost:54186/api/clients',
+                    method: 'POST',
+                    data: obj,
+                    success: function (data) {
+                        alert(`Nouveau client enregitrer ${data.ID}`);
+                    }
+                });
+
+                ev.preventDefault();
+            });
         });
-
-
-        $("form").submit(function (ev) {
-            let obj = {
-                Civilite: $("#inputCivilite").val(),
-                Non: $("#inputNom").val(),
-                Prenom: $("#inputPrenom").val(),
-                Adresse: $("#inputAdresse").val(),
-                Telephone: $("#inputTelephone").val(),
-                Email: $("#inputEmail").val(),
-                DateNaissance: $("#inputDateNaissance").val(), 
-            };
-            
-
-            $.ajax({
-                url: 'http://localhost:49572/api/todos',
-                method: 'POST',
-                data: obj,
-                success: function (data) {
-                    alert(`Todo enregistré avec l'ID ${data.ID}`);
-                }
-            })
-
-            ev.preventDefault();
-        })
-                                })
+                             
         </script>
 
 </body>
