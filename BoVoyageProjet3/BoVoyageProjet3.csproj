@@ -108,6 +108,14 @@
     <Compile Include="Migrations\201807100857339_Init.Designer.cs">
       <DependentUpon>201807100857339_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807100942047_AgeModifie.cs" />
+    <Compile Include="Migrations\201807100942047_AgeModifie.Designer.cs">
+      <DependentUpon>201807100942047_AgeModifie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807101012527_AjoutDonnees.cs" />
+    <Compile Include="Migrations\201807101012527_AjoutDonnees.Designer.cs">
+      <DependentUpon>201807101012527_AjoutDonnees.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgenceVoyage.cs" />
     <Compile Include="Models\BaseModel.cs" />
@@ -134,6 +142,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201807100857339_Init.resx">
       <DependentUpon>201807100857339_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807100942047_AgeModifie.resx">
+      <DependentUpon>201807100942047_AgeModifie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807101012527_AjoutDonnees.resx">
+      <DependentUpon>201807101012527_AjoutDonnees.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
