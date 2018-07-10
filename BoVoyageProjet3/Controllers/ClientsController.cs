@@ -13,7 +13,7 @@ using BoVoyageProjet3.Models;
 
 namespace BoVoyageProjet3.Controllers
 {
-    [RoutePrefix("api/agenceVoyages")]
+    [RoutePrefix("api/clients")]
     public class ClientsController : ApiController
     {
         private BoVoyageDbContext db = new BoVoyageDbContext();
