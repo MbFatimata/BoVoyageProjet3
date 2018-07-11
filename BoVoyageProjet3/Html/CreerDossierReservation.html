@@ -167,6 +167,9 @@
                     NumeroCarteBancaire: $("#inputNumeroCarteBancaire").val(),
 
                 };
+                if ($('#inputNumeroCarteBancaire').val() == '') {
+                    alert("Le champs Numéro de carte bancaire est vide");
+                }
 
 
                 $.ajax({

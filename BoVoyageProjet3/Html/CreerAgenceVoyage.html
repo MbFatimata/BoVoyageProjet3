@@ -124,6 +124,9 @@
                     Nom: $("#inputNom").val(),
                 };
 
+                if ($("#inputNom").val() == '') {
+                    alert("Le champs Nom est vide");
+                }
 
                 $.ajax({
                     url: 'http://localhost:54186/api/agenceVoyages',
