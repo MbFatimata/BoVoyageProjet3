@@ -32,7 +32,7 @@
     <script>
         $.get("http://localhost:54186/api/participants", function (data) {
             for (let participant of data) {
-                $("#contenu").append(`<tr><td>${participant.Civilite}</td><td>${participant.Nom}</td><td>${participant.Prenom}</td><td>${participant.Adresse}</td><td>${participant.Telephone}</td><td>${participant.DateNaissance}</td><td>${participant.Age}</td><td>${participant.DossierReservation}</td><td>${participant.Reduction}</td></tr>`);
+                $("#contenu").append(`<tr><td>${participant.Civilite}</td><td>${participant.Nom}</td><td>${participant.Prenom}</td><td>${participant.Adresse}</td><td>${participant.Telephone}</td><td>${participant.DateNaissance}</td><td>${participant.Age}</td><td>${participant.DossierReservationID}</td><td>${participant.Reduction}</td></tr>`);
             }
 
         });
