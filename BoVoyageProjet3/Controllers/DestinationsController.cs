@@ -53,6 +53,34 @@ namespace BoVoyageProjet3.Controllers
             return Ok(destination);
         }
 
+        /// <summary>
+        /// Retoune la destination selon le critère choisi
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
+        // GET: api/destinations/search
+        [Route("search")]
+        public IQueryable<Destination> GetSearch(string continent = "", string pays = "", string region = "")
+        {
+            var query = db.Destinations.Where(x => !x.Deleted);
+            if (!string.IsNullOrEmpty(continent))
+            {
+                query = query.Where(x => x.Continent.Contains(continent));
+            }
+            if (!string.IsNullOrEmpty(pays))
+            {
+                query = query.Where(x => x.Continent.Contains(pays));
+            }
+            if (!string.IsNullOrEmpty(region))
+            {
+                query = query.Where(x => x.Continent.Contains(region));
+            }
+            return query;
+
+        }
+
         // PUT: api/Destinations/5*
         /// <summary>
         /// Modifier une destination
@@ -96,6 +124,7 @@ namespace BoVoyageProjet3.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+
         // POST: api/Destinations
         /// <summary>
         /// Ajouter une destination
@@ -136,7 +165,10 @@ namespace BoVoyageProjet3.Controllers
                 return NotFound();
             }
 
-            db.Destinations.Remove(destination);
+            //db.Destinations.Remove(destination);
+            destination.Deleted = true;
+            destination.DeletedAt = DateTime.Now;
+            db.Entry(destination).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
 
             return Ok(destination);

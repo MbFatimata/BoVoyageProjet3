@@ -66,6 +66,52 @@ namespace BoVoyageProjet3.Controllers
             return db.Clients.Where(x => x.Nom.Contains(nom));
         }
 
+        // GET: api/clients/search
+        /// <summary>
+        /// Retourne le client non supprimé selon le critère choisi
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
+        [ResponseType(typeof(Client))]
+        [Route("search")]
+        public IQueryable<Client> GetSearch(string email = "", string civilite = "", string nom = "", string prenom = "", string adresse = "", string telephone = "" , DateTime? dateNaissance = null)
+        {
+            var query = db.Clients.Where(x => !x.Deleted);
+            if (!string.IsNullOrEmpty(nom))
+            {
+                query = query.Where(x => x.Nom.Contains(nom));
+            }
+            if (!string.IsNullOrEmpty(email))
+            {
+                query = query.Where(x => x.Email.Contains(email));
+            }
+            if (!string.IsNullOrEmpty(civilite))
+            {
+                query = query.Where(x => x.Civilite.Contains(civilite));
+            }
+            if (!string.IsNullOrEmpty(prenom))
+            {
+                query = query.Where(x => x.Prenom.Contains(prenom));
+            }
+            if (!string.IsNullOrEmpty(adresse))
+            {
+                query = query.Where(x => x.Adresse.Contains(adresse));
+            }
+            if (!string.IsNullOrEmpty(telephone))
+            {
+                query = query.Where(x => x.Telephone.Contains(telephone));
+            }
+
+            if (dateNaissance != null)
+            {
+                query = query.Where(x => x.DateNaissance == dateNaissance);
+            }
+            return query;
+
+        }
+
         // PUT: api/Clients/5
         /// <summary>
         /// Modifier les informations d'un client à l'aide de son identifiants
@@ -74,7 +120,6 @@ namespace BoVoyageProjet3.Controllers
         /// 
         /// </remarks>
         /// <returns></returns>
-        [ResponseType(typeof(void))]
         [Route("{id:int}")]
         public IHttpActionResult PutClient(int id, Client client)
         {
@@ -149,7 +194,10 @@ namespace BoVoyageProjet3.Controllers
                 return NotFound();
             }
 
-            db.Clients.Remove(client);
+            //db.Clients.Remove(client);
+            client.Deleted = true;
+            client.DeletedAt = DateTime.Now;
+            db.Entry(client).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
 
             return Ok(client);
