@@ -154,6 +154,28 @@
                     DateNaissance: $("#inputDateNaissance").val(),
                 };
 
+                if ($('#inputCivilite').val() == '') {
+                    alert("Le champs Civilité est vide");
+                }
+                if ($('#inputNom').val() == '') {
+                    alert("Le champs Nom est vide");
+                }
+                if ($('#inputPrenom').val() == '') {
+                    alert("Le champs Prénom est vide");
+                }
+                if ($('#inputAdresse').val() == '') {
+                    alert("Le champs Adresse est vide");
+                }
+                if ($('#inputTelephone').val() == '') {
+                    alert("Le champs Téléphone est vide");
+                }
+                if ($('#inputEmail').val() == '') {
+                    alert("Le champs Email est vide");
+                }
+                if ($('#inputDateNaissance').val() == '') {
+                    alert("Le champs Date de Naissance est vide");
+                }
+
 
                 $.ajax({
                     url: 'http://localhost:54186/api/clients',
