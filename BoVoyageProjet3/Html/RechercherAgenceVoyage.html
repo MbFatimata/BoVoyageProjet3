@@ -134,7 +134,7 @@
         $(document).ready(function () {
             $("form").submit(function (ev) {
                 $.ajax({
-                    url: "http://localhost:54186/api/agenceVoyages/" + $("#inputNom").val(),
+                    url: "http://localhost:54186/api/agenceVoyages/search?nom=" + $("#inputNom").val(),
                     method: 'GET',
                     success: function (data) {
                         for (let agence of data) {
