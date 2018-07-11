@@ -10,8 +10,8 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>Client</th>
-                    <th>Voyage</th>
+                    <th>Identifiant client</th>
+                    <th>Identifiant voyage </th>                  
                     <th>Nombre de participant</th>
                     <th>Assurance</th>
                     <th>Prix total</th>
@@ -30,9 +30,8 @@
         $.get("http://localhost:54186/api/dossierreservations", function (data) {
             for (let dossierReservation of data) {
                 $("#contenu").append(`<tr><td>${dossierReservation.ClientID}</td><td>${dossierReservation.VoyageID}</td><td>${dossierReservation.NombreParticipant}</td><td>${dossierReservation.Assurance}</td><td>${dossierReservation.PrixTotal}</td><td>${dossierReservation.NumeroCarteBancaire}</td></tr>`);
-            }
-
-        });
+            };
+        });     
     </script>
 </body>
 </html>
