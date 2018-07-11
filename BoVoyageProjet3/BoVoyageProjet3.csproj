@@ -150,6 +150,10 @@
     <Compile Include="Migrations\201807101012527_AjoutDonnees.Designer.cs">
       <DependentUpon>201807101012527_AjoutDonnees.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807110935501_ModifModelDeleted.cs" />
+    <Compile Include="Migrations\201807110935501_ModifModelDeleted.Designer.cs">
+      <DependentUpon>201807110935501_ModifModelDeleted.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgenceVoyage.cs" />
     <Compile Include="Models\BaseModel.cs" />
@@ -195,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807101012527_AjoutDonnees.resx">
       <DependentUpon>201807101012527_AjoutDonnees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807110935501_ModifModelDeleted.resx">
+      <DependentUpon>201807110935501_ModifModelDeleted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

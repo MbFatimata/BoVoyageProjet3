@@ -66,6 +66,27 @@ namespace BoVoyageProjet3.Controllers
             return db.AgencesVoyage.Where(x => x.Nom.Contains(nom));
         }
 
+        /// <summary>
+        /// Afficher une agence non supprimée selon son nom 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
+
+        // GET: api/AgenceVoyagesController/search 
+        [Route("search")]
+        public IQueryable<AgenceVoyage> GetSearch(string nom = "")
+        {
+            var query = db.AgencesVoyage.Where(x => !x.Deleted);
+            if (!string.IsNullOrEmpty(nom))
+            {
+                query = query.Where(x => x.Nom.Contains(nom));
+            }
+            return query;
+
+        }
+
         // PUT: api/AgenceVoyages/5
         /// <summary>
         /// Modifie l'agence en fonction de son identifiant
@@ -149,7 +170,12 @@ namespace BoVoyageProjet3.Controllers
                 return NotFound();
             }
 
-            db.AgencesVoyage.Remove(agenceVoyage);
+            //db.AgencesVoyage.Remove(agenceVoyage);
+            agenceVoyage.Deleted = true;
+            agenceVoyage.DeletedAt = DateTime.Now;
+            db.Entry(agenceVoyage).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+
             db.SaveChanges();
 
             return Ok(agenceVoyage);

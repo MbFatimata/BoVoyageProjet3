@@ -9,5 +9,7 @@ namespace BoVoyageProjet3.Models
     {
         //[Key]
         public int ID { get; set; }
+        public bool Deleted { get; set; }
+        public DateTime? DeletedAt { get; set; }
     }
 }
