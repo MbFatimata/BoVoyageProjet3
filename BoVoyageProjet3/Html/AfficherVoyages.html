@@ -8,15 +8,17 @@
 </head>
 <body>
     <div class="container">
+        <h2>Liste des voyages</h2>
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Agence de voyage</th>
                     <th>Destination</th>
                     <th>Date de départ</th>
                     <th>Date de retour</th>
                     <th>Places disponibles</th>
-                    <th>Tarif tout compris</th>                    
+                    <th>Tarif tout compris</th>
                 </tr>
             </thead>
             <tbody id="contenu"></tbody>
@@ -30,7 +32,7 @@
     <script>
         $.get("http://localhost:54186/api/voyages", function (data) {
             for (let voyage of data) {
-                $("#contenu").append(`<tr><td>${voyage.AgenceID}</td><td>${voyage.DestinationID}</td><td>${voyage.DateAller}</td><td>${voyage.DateRetour}</td><td>${voyage.PlacesDisponibles}</td><td>${voyage.TariftoutCompris}</td></tr>`);
+                $("#contenu").append(`<tr><td>${voyage.ID}</td><td>${voyage.AgenceID}</td><td>${voyage.DestinationID}</td><td>${voyage.DateAller}</td><td>${voyage.DateRetour}</td><td>${voyage.PlacesDisponibles}</td><td>${voyage.TariftoutCompris}</td></tr>`);
             }
 
         });

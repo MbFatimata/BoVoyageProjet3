@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Les agences de Voyages</title>
+    <link rel=" stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />
+    <!--<link rel="stylesheet" href="BoVoyage.css">-->
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Supprimer une agence</h1>
+                <div class="container">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Identifiant</th>
+                                <th>Nom de l'agence</th>
+                            </tr>
+                        </thead>
+                        <tbody id="contenu"></tbody>
+                    </table>
+                </div>
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="inputNom">Agence de voyage à supprimer</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputNom" placeholder="Identifiant agence">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-default">Supprimer</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <ul id="resultat"></ul>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            //$.get("http://localhost:54186/api/agenceVoyages", function (data) {
+            //    for (let agenceVoyage of data) {
+            //        $("#contenu").append(`<tr><td>${agenceVoyage.Nom}</td></tr>`);
+            //    }
+
+            //});
+            $.ajax({
+                url: "http://localhost:54186/api/agenceVoyages",
+                methode: "GET",
+                success: function (data) {
+                    for (let item of data)
+                        $("#contenu").append(`<tr><td> ${item.ID}</td><td> ${item.Nom}</td></tr>`)
+                },
+                error: function (message) {
+                    alert(message);
+                }
+            });
+        });
+
+        $(document).ready(function () {
+
+            $("btn btn-default").click(function () {
+                var 
+                $.ajax({
+                    url: 'http://localhost:54186/api/agenceVoyages',
+                    method: 'DELETE',
+                    data: obj,
+                    success: function (data) {
+                        alert(`Voyage supprimer ${data.ID}`);
+                    }
+                });
+               
+            });
+
+            ev.preventDefault();
+        });
+        function removeSousCategories(souscategoriesId = null) {
+            $("removeSousCategoriesBtn").click(function () {
+                var SupSSC = $(this).attr('id');
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'supprimerSousCategorie.php',
+                    data: 'souscategoriesId=' + SupSSC,
+                    success: function (data) 
+    </script>
+</body>
+</html>
+
+<!--$("form").submit(function (ev) {
+             let obj = {
+                 VoyageID: $("#inputNom").val(),
+
+             };-->

@@ -8,9 +8,11 @@
 </head>
 <body>
     <div class="container">
+        <h2>Liste des participants</h2>
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Civilité</th>
                     <th>Nom</th>
                     <th>Prénom</th>
@@ -33,7 +35,7 @@
     <script>
         $.get("http://localhost:54186/api/participants", function (data) {
             for (let participant of data) {
-                $("#contenu").append(`<tr><td>${participant.Civilite}</td><td>${participant.Nom}</td><td>${participant.Prenom}</td><td>${participant.Adresse}</td><td>${participant.Telephone}</td><td>${participant.DateNaissance}</td><td>${participant.Age}</td><td>${participant.DossierReservationID}</td><td>${participant.Reduction}</td></tr>`);
+                $("#contenu").append(`<tr><td>${participant.ID}</td><td>${participant.Civilite}</td><td>${participant.Nom}</td><td>${participant.Prenom}</td><td>${participant.Adresse}</td><td>${participant.Telephone}</td><td>${participant.DateNaissance}</td><td>${participant.Age}</td><td>${participant.DossierReservationID}</td><td>${participant.Reduction}</td></tr>`);
             }
 
         });
