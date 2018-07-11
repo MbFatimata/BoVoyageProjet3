@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h2>Créer un dossier de réservation</h2>
-                <form role="form">                    
+                <form role="form">
                     <div class="form-group">
                         <label class="control-label">Identifiant Client</label>
                         <select class="form-control" id="inputClientID"></select>
@@ -24,21 +24,21 @@
                         <input type="number" class="form-control" id="inputnombreParticipant" placeholder="Entrer le nombre de participant">
                     </div>
                     <div class="form-group">
+                        <div class="control-label">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="inputAssurance"> Cocher la case pour souscrire à l'assurance
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="control-label">Prix total</label>
                         <input type="text" class="form-control" id="inputPrixTotal" placeholder="">
                     </div>
                     <div class="form-group">
                         <label class="control-label">Numero de carte bancaire</label>
                         <input type="number" class="form-control" id="inputNumeroCarteBancaire" placeholder="Entrer le numéro de la carte bancaire">
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"> Cocher la case pour souscrire à l'assurance
-                                </label>
-                            </div>
-                        </div>
                     </div>
                     <button type="submit" class="btn btn-default">Enregistrer</button>
                 </form>
@@ -58,37 +58,38 @@
                 for (let item of data)
                     $("#inputClientID").append(`<option value="${item.ID}">${item.Prenom} ${item.Nom}</option>`)
             }
-                        );
-
-            $.get("http://localhost:54186/api/voyages", function (data) {
+            );
+            
+            $.get("http://localhost:54186/api/destinations", function (data) {
                 for (let item of data)
-                    $("#inputVoyageID").append(`<option value="${item.ID}">${item.ID}</option>`)
+                    $("#inputVoyageID").append(`<option value="${item.ID}">${item.Pays} - ${item.Description}</option>`)
             }
-                        );
+            );
 
-        $("form").submit(function (ev) {
-            let obj = {
-                ClientID: $("#inputClientID").val(),
-                VoyageID: $("#inputVoyageID").val(),
-                NombreParticipant: $("#inputNombreParticipant").val(),
-                PrixTotal: $("#inputPrixTotal").val(),
-                NumeroCarteBancaire: $("#inputNumeroCarteBancaire").val(),
-                Assurance: $("#inputAssurance").is(':checked'),
-            };
+            $("form").submit(function (ev) {
+                let obj = {
+                    ClientID: $("#inputClientID").val(),
+                    VoyageID: $("#inputVoyageID").val(),
+                    NombreParticipant: $("#inputNombreParticipant").val(),
+                    Assurance: $("#inputAssurance").is(':checked'),
+                    PrixTotal: $("#inputPrixTotal").val(),
+                    NumeroCarteBancaire: $("#inputNumeroCarteBancaire").val(),
+
+                };
 
 
-            $.ajax({
-                url: 'http://localhost:54186/api/dossierReservations',
-                method: 'POST',
-                data: obj,
-                success: function (data) {
-                    alert(`Nouveau dossier enregitré ${data.ID}`);
-                }
+                $.ajax({
+                    url: 'http://localhost:54186/api/dossierReservations',
+                    method: 'POST',
+                    data: obj,
+                    success: function (data) {
+                        alert(`Nouveau dossier enregitré ${data.ID}`);
+                    }
+                });
+
+                ev.preventDefault();
             });
-
-            ev.preventDefault();
         });
-            });
 
     </script>
 
