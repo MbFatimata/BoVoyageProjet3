@@ -59,7 +59,6 @@ namespace BoVoyageProjet3.Controllers
         /// 
         /// </remarks>
         /// <returns></returns>
-        [ResponseType(typeof(AgenceVoyage))]
         [Route("{nom}")]
         public IQueryable<AgenceVoyage> GetAgenceVoyage(string nom)
         {

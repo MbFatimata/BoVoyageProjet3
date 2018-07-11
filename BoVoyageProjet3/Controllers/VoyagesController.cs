@@ -53,6 +53,34 @@ namespace BoVoyageProjet3.Controllers
             return Ok(voyage);
         }
 
+        // GET: api/Voyages/search
+        /// <summary>
+        /// Rechercher un voyage selon sa date d'aller, sa date de retour ou sa destination
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
+        [Route("search")]
+        public IQueryable<Voyage> GetSearch(int? destinationId = null, DateTime? dateAller = null, DateTime? dateRetour = null)
+        {
+            var query = db.Voyages.Where(x => !x.Deleted);
+            if (destinationId != null)
+            {
+                query = query.Where(x => x.DestinationID == destinationId);
+            }
+            if (dateAller != null)
+            {
+                query = query.Where(x => x.DateAller == dateAller);
+            }
+            if (dateRetour != null)
+            {
+                query = query.Where(x => x.DateRetour == dateRetour);
+            }
+            return query;
+
+        }
+
         // PUT: api/Voyages/5
         /// <summary>
         /// Modifier un voyage
@@ -136,7 +164,10 @@ namespace BoVoyageProjet3.Controllers
                 return NotFound();
             }
 
-            db.Voyages.Remove(voyage);
+            //db.Voyages.Remove(voyage);
+            voyage.Deleted = true;
+            voyage.DeletedAt = DateTime.Now;
+            db.Entry(voyage).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
 
             return Ok(voyage);

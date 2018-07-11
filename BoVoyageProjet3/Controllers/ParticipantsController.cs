@@ -52,6 +52,54 @@ namespace BoVoyageProjet3.Controllers
             return Ok(participant);
         }
 
+        // GET: api/Participants/search
+        /// <summary>
+        /// Rechercher un participant par ses infos personnels(nom, prenom,...) sa reduction ou son dossier de réservation
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
+        [Route("api/Participants/search")]
+        public IQueryable<Participant> GetSearch(string civilite = "", string nom = "", string prenom = "", string adresse = "", string telephone = "", DateTime? dateNaissance = null, double? reduction = null, int? dossierReservationID = null)
+        {
+            var query = db.Participants.Where(x => !x.Deleted);
+            if (!string.IsNullOrEmpty(nom))
+            {
+                query = query.Where(x => x.Nom.Contains(nom));
+            }
+            if (!string.IsNullOrEmpty(civilite))
+            {
+                query = query.Where(x => x.Civilite.Contains(civilite));
+            }
+            if (!string.IsNullOrEmpty(prenom))
+            {
+                query = query.Where(x => x.Prenom.Contains(prenom));
+            }
+            if (!string.IsNullOrEmpty(adresse))
+            {
+                query = query.Where(x => x.Adresse.Contains(adresse));
+            }
+            if (!string.IsNullOrEmpty(telephone))
+            {
+                query = query.Where(x => x.Telephone.Contains(telephone));
+            }
+
+            if (dateNaissance != null)
+            {
+                query = query.Where(x => x.DateNaissance == dateNaissance);
+            }
+            if (reduction != null)
+            {
+                query = query.Where(x => x.Reduction == reduction);
+            }
+            if (dossierReservationID != null)
+            {
+                query = query.Where(x => x.DossierReservationID == dossierReservationID);
+            }
+            return query;
+        }
+        
         // PUT: api/Participants/5
         /// <summary>
         /// Modifier un participant
@@ -135,7 +183,10 @@ namespace BoVoyageProjet3.Controllers
                 return NotFound();
             }
 
-            db.Participants.Remove(participant);
+            //db.Participants.Remove(participant);
+            participant.Deleted = true;
+            participant.DeletedAt = DateTime.Now;
+            db.Entry(participant).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
 
             return Ok(participant);
