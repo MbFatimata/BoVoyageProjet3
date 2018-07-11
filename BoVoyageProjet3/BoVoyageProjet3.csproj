@@ -101,6 +101,7 @@
   <ItemGroup>
     <Content Include="CSS\BoVoyage.css" />
     <Content Include="Html\AfficherAgenceVoyage.html" />
+    <Content Include="Html\AfficherAgenceVoyages.html" />
     <Content Include="Html\AfficherClients.html" />
     <Content Include="Html\AfficherDestinations.html" />
     <Content Include="Html\AfficherDossierReservations.html" />
