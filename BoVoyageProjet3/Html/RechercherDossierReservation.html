@@ -2,22 +2,27 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Destinations</title>
+    <title>Dossiers de réservations</title>
     <link rel=" stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="BoVoyage.css">
 </head>
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <h2>Rechercher une destination</h2>
+            <div class="col-md-12">
+                <h2>Rechercher les dossiers de réservations selon le client ou le voyage</h2>
                 <form class="form-horizontal" role="form">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label" for="inputContinent">Continent</label>
+                        <label class="col-sm-2 control-label" for="inputClientID"> ID Client</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputContinent" placeholder="Continent">
+                            <input type="text" class="form-control" id="inputClientID" placeholder="inputClientID">
+                        </div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputVoyageID" placeholder="inputVoyageID">
                         </div>
                     </div>
+                    <a href="AfficherClients.html">Accéder aux clients</a>
+                    <a href="AfficherVoyages.html">Accéder aux voyages</a>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <button type="submit" class="btn btn-default">Rechercher</button>
@@ -29,10 +34,11 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Continent</th>
-                        <th>Pays</th>
-                        <th>Région</th>
-                        <th>Description</th>
+                        <th>Identifiant Client</th>
+                        <th>Identifiant Voyage</th>
+                        <th>Prix total</th>
+                        <th>Nombre de participants</th>
+                        <th>Assurance (oui: true, non:false)</th>
                     </tr>
                 </thead>
                 <tbody id="contenu"></tbody>
@@ -43,16 +49,16 @@
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-
+  
     <script>
         $(document).ready(function () {
             $("form").submit(function (ev) {
                 $.ajax({
-                    url: "http://localhost:54186/api/destinations/" + $("#inputContinent").val(),
+                    url: "http://localhost:54186/api/dossierReservations/search?clientID=" + $("#inputClientID").val() + "&voyageID=" + $("#inputVoyageID").val(),
                     method: 'GET',
                     success: function (data) {
-                        for (let destination of data) {
-                            $("#contenu").append(`<tr><td>${destination.ID}</td><td>${destination.Continent}</td><td> ${destination.Pays}</td><td> ${destination.Region}</td><td> ${destination.Description}</td></tr>` );
+                        for (let dossier of data) {
+                            $("#contenu").append(`<tr><td>${dossier.ID}</td><td>${dossier.ClientID}</td><td>${dossier.VoyageID}</td><td>${dossier.PrixTotal}</td><td>${dossier.NombreParticipant}</td><td>${dossier.Assurance}</td></tr>`);
                         }
                     },
                     error: function (message) {

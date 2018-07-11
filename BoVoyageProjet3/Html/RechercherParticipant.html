@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Destinations</title>
+    <title>Participants</title>
     <link rel=" stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="BoVoyage.css">
 </head>
@@ -10,14 +10,15 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h2>Rechercher une destination</h2>
+                <h2>Rechercher un participant</h2>
                 <form class="form-horizontal" role="form">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label" for="inputContinent">Continent</label>
+                        <label class="col-sm-2 control-label" for="inputNom">Nom</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputContinent" placeholder="Continent">
+                            <input type="text" class="form-control" id="inputNom" placeholder="Nom">
                         </div>
                     </div>
+
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <button type="submit" class="btn btn-default">Rechercher</button>
@@ -29,10 +30,15 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Continent</th>
-                        <th>Pays</th>
-                        <th>Région</th>
-                        <th>Description</th>
+                        <th>Civilité</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Adresse</th>
+                        <th>Téléphone</th>
+                        <th>Date de Naissance</th>
+                        <th>Age</th>
+                        <th>Reduction</th>
+                        <th>Dossier de réservation</th>
                     </tr>
                 </thead>
                 <tbody id="contenu"></tbody>
@@ -48,11 +54,11 @@
         $(document).ready(function () {
             $("form").submit(function (ev) {
                 $.ajax({
-                    url: "http://localhost:54186/api/destinations/" + $("#inputContinent").val(),
+                    url: "http://localhost:54186/api/participants/" + $("#inputNom").val(),
                     method: 'GET',
                     success: function (data) {
-                        for (let destination of data) {
-                            $("#contenu").append(`<tr><td>${destination.ID}</td><td>${destination.Continent}</td><td> ${destination.Pays}</td><td> ${destination.Region}</td><td> ${destination.Description}</td></tr>` );
+                        for (let participant of data) {
+                            $("#contenu").append(`<tr><td>${participant.ID}</td><td>${participant.Civilite}</td><td>${participant.Nom}</td><td>${participant.Prenom}</td><td>${participant.Adresse}</td><td>${participant.Telephone}</td><td>${participant.DateNaissance}</td><td>${participant.Age}</td><td>${participant.Reduction}</td><td>${participant.DossierReservationID}</td></tr>`);
                         }
                     },
                     error: function (message) {

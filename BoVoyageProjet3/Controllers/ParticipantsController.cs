@@ -51,7 +51,19 @@ namespace BoVoyageProjet3.Controllers
 
             return Ok(participant);
         }
-
+        /// <summary>
+        /// Retourne le participant selon son nom
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
+        [ResponseType(typeof(Participant))]
+        [Route("{nom}")]
+        public IQueryable<Participant> GetParticipant(string nom)
+        {
+            return db.Participants.Where(x => x.Nom.Contains(nom));
+        }
         // GET: api/Participants/search
         /// <summary>
         /// Rechercher un participant par ses infos personnels(nom, prenom,...) sa reduction ou son dossier de réservation

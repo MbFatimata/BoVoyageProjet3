@@ -26,9 +26,15 @@
                     </div>
                 </form>
             </div>
-            <div class="col-md-6">
-                <ul id="resultat"></ul>
-            </div>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom de l'agence</th>
+                    </tr>
+                </thead>
+                <tbody id="contenu"></tbody>
+            </table>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -43,9 +49,8 @@
                     url: "http://localhost:54186/api/agenceVoyages/" + $("#inputNom").val(),
                     method: 'GET',
                     success: function (data) {
-                        let ul = $('#resultat');
-                        for (let item of data) {
-                            ul.append(`<li>${item.Nom}</li>`);
+                        for (let agence of data) {
+                            $("#contenu").append(`<tr><td>${agence.ID}</td><td>${agence.Nom}</td></tr>`);
                         }
                     },
                     error: function (message) {

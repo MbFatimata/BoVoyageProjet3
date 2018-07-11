@@ -26,9 +26,22 @@
                     </div>
                 </form>
             </div>
-            <div class="col-md-6">
-                <ul id="resultat"></ul>
-            </div>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Civilité</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Adresse</th>
+                        <th>Téléphone</th>
+                        <th>Email</th>
+                        <th>Date de Naissance</th>
+                        <th>Age</th>
+                    </tr>
+                </thead>
+                <tbody id="contenu"></tbody>
+            </table>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -43,9 +56,8 @@
                     url: "http://localhost:54186/api/clients/" + $("#inputNom").val(),
                     method: 'GET',
                     success: function (data) {
-                        let ul = $('#resultat');
-                        for (let item of data) {
-                            ul.append(`<li>${item.Nom}</li>`);
+                        for (let client of data) {
+                            $("#contenu").append(`<tr><td>${client.ID}</td><td>${client.Civilite}</td><td>${client.Nom}</td><td>${client.Prenom}</td><td>${client.Adresse}</td><td>${client.Telephone}</td><td>${client.Email}</td><td>${client.DateNaissance}</td><td>${client.Age}</td></tr>`);
                         }
                     },
                     error: function (message) {

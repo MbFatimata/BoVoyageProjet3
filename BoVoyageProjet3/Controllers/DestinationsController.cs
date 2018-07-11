@@ -13,7 +13,7 @@ using BoVoyageProjet3.Models;
 
 namespace BoVoyageProjet3.Controllers
 {
-    [RoutePrefix("api/Continents")]
+    [RoutePrefix("api/Destinations")]
 
     public class DestinationsController : ApiController
     {
@@ -51,6 +51,20 @@ namespace BoVoyageProjet3.Controllers
             }
 
             return Ok(destination);
+        }
+
+        /// <summary>
+        /// Retourne la liste des destinations selon leur continent
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
+        [ResponseType(typeof(Destination))]
+        [Route("{continent}")]
+        public IQueryable<Destination> GetDestination(string continent)
+        {
+            return db.Destinations.Where(x => x.Continent.Contains(continent));
         }
 
         /// <summary>
