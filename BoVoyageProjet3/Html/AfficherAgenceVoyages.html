@@ -9,9 +9,11 @@
 <body>
 
     <div class="container">
+        <h2>Liste des agences de voyage</h2>
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Nom de l'agence</th>
                 </tr>
             </thead>
@@ -36,7 +38,7 @@
                 methode: "GET",
                 success: function (data) {
                     for (let item of data)
-                        $("#contenu").append(`<tr><td> ${item.Nom}</td></tr>`)
+                        $("#contenu").append(`<tr><td> ${item.ID}</td><td> ${item.Nom}</td></tr>`)
                 },
                 error: function (message) {
                     alert(message);

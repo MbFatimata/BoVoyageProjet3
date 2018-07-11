@@ -8,9 +8,11 @@
 </head>
 <body>
     <div class="container">
+        <h2>Liste des clients</h2>
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Civilité</th>
                     <th>Nom</th>
                     <th>Prénom</th>
@@ -32,7 +34,7 @@
     <script>
         $.get("http://localhost:54186/api/clients", function (data) {
             for (let client of data) {
-                $("#contenu").append(`<tr><td>${client.Civilite}</td><td>${client.Nom}</td><td>${client.Prenom}</td><td>${client.Adresse}</td><td>${client.Telephone}</td><td>${client.Email}</td><td>${client.DateNaissance}</td><td>${client.Age}</td></tr>`);
+                $("#contenu").append(`<tr><td>${client.ID}</td><td>${client.Civilite}</td><td>${client.Nom}</td><td>${client.Prenom}</td><td>${client.Adresse}</td><td>${client.Telephone}</td><td>${client.Email}</td><td>${client.DateNaissance}</td><td>${client.Age}</td></tr>`);
             }
 
         });

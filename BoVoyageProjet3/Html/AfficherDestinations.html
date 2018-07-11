@@ -8,9 +8,11 @@
 </head>
 <body>
     <div class="container">
+        <h2>Liste des destinations</h2>
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Continent</th>
                     <th>Pays</th>
                     <th>Région</th>
@@ -28,7 +30,7 @@
     <script>
         $.get("http://localhost:54186/api/destinations", function (data) {
             for (let destination of data) {
-                $("#contenu").append(`<tr><td>${destination.Continent}</td><td>${destination.Pays}</td><td>${destination.Region}</td><td>${destination.Description}</td></tr>`);
+                $("#contenu").append(`<tr><td>${destination.ID}</td><td>${destination.Continent}</td><td>${destination.Pays}</td><td>${destination.Region}</td><td>${destination.Description}</td></tr>`);
             }
 
         });

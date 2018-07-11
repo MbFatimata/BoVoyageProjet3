@@ -73,14 +73,8 @@
 
         $(document).ready(function () {
 
-
-            $("form").submit(function (ev) {
-                let obj = {
-                    VoyageID: $("#inputNom").val(),
-
-                };
-
-
+            $("btn btn-default").click(function () {
+                var 
                 $.ajax({
                     url: 'http://localhost:54186/api/agenceVoyages',
                     method: 'DELETE',
@@ -89,10 +83,26 @@
                         alert(`Voyage supprimer ${data.ID}`);
                     }
                 });
-
-                ev.preventDefault();
+               
             });
+
+            ev.preventDefault();
         });
+        function removeSousCategories(souscategoriesId = null) {
+            $("removeSousCategoriesBtn").click(function () {
+                var SupSSC = $(this).attr('id');
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'supprimerSousCategorie.php',
+                    data: 'souscategoriesId=' + SupSSC,
+                    success: function (data) 
     </script>
 </body>
 </html>
+
+<!--$("form").submit(function (ev) {
+             let obj = {
+                 VoyageID: $("#inputNom").val(),
+
+             };-->
