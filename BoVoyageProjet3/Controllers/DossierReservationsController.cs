@@ -52,6 +52,31 @@ namespace BoVoyageProjet3.Controllers
             return Ok(dossierReservation);
         }
 
+
+        // GET: api/DossierReservations/search
+        /// <summary>
+        /// Retourne la liste des dossiers de réservation selon l'identifiant du client ou l'identifiant du voyage
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <returns></returns>
+        [Route("search")]
+        public IQueryable<DossierReservation> GetSearch(int? clientId = null, int? voyageId = null)
+        {
+            var query = db.DossiersReservation.Where(x => !x.Deleted);
+            if (clientId != null)
+            {
+                query = query.Where(x => x.ClientID == clientId);
+            }
+            if (voyageId != null)
+            {
+                query = query.Where(x => x.VoyageID == voyageId);
+            }
+            return query;
+
+        }
+
         // PUT: api/DossierReservations/5
         /// <summary>
         /// Modifier le dossier de reservation associé à l'identifiant choisi
@@ -135,7 +160,10 @@ namespace BoVoyageProjet3.Controllers
                 return NotFound();
             }
 
-            db.DossiersReservation.Remove(dossierReservation);
+            //db.DossiersReservation.Remove(dossierReservation);
+            dossierReservation.Deleted = true;
+            dossierReservation.DeletedAt = DateTime.Now;
+            db.Entry(dossierReservation).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
 
             return Ok(dossierReservation);
