@@ -23,8 +23,8 @@ namespace BoVoyageProjet3.Controllers
         /// Retourne la liste des Clients
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
+        /// <response code="200"> </response>
         /// <returns></returns>
         public IQueryable<Client> GetClients()
         {

@@ -25,6 +25,7 @@ namespace BoVoyageProjet3.Controllers
         /// <remarks>
         /// 
         /// </remarks>
+        /// <response code="200"> </response>
         /// <returns></returns>
         public IQueryable<AgenceVoyage> GetAgencesVoyage()
         {

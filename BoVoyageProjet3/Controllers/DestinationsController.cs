@@ -37,8 +37,8 @@ namespace BoVoyageProjet3.Controllers
         /// Retourne une destination selon son identifiant
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
+        /// <response code="200"> </response> 
         /// <returns></returns>
         [ResponseType(typeof(Destination))]
         [Route("{id:int}")]

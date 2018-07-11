@@ -59,6 +59,7 @@ namespace BoVoyageProjet3.Controllers
         /// <remarks>
         /// 
         /// </remarks>
+        /// <response code="200"> </response>
         /// <returns></returns>
         [Route("api/Participants/search")]
         public IQueryable<Participant> GetSearch(string civilite = "", string nom = "", string prenom = "", string adresse = "", string telephone = "", DateTime? dateNaissance = null, double? reduction = null, int? dossierReservationID = null)

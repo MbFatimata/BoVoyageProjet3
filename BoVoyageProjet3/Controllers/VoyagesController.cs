@@ -24,8 +24,8 @@ namespace BoVoyageProjet3.Controllers
         /// Afficher les voyages
         /// </summary>
         /// <remarks>
-        /// 
         /// </remarks>
+        /// <response code="200"> </response>
         /// <returns></returns>
         public IQueryable<Voyage> GetVoyages()
         {

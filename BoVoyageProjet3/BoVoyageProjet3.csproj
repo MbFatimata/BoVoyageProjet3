@@ -99,6 +99,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CSS\BoVoyage.css" />
     <Content Include="Html\AfficherAgenceVoyage.html" />
     <Content Include="Html\AfficherClients.html" />
     <Content Include="Html\AfficherDestinations.html" />
@@ -113,7 +114,6 @@
     <Content Include="Html\MenuGeneral.html" />
     <Content Include="Html\RechercherAgenceVoyage.html" />
     <Content Include="Html\CreerClient.html" />
-    <Content Include="Html\Home.html" />
     <Content Include="Html\RechercherClient.html" />
     <Content Include="Html\RechercherDestination.html" />
     <Content Include="Global.asax" />
