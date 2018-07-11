@@ -1,20 +1,21 @@
 ﻿body {
 }
 
-.container-fluid{
+.container-fluid {
     padding: 0;
 }
 
-.banner{
+.banner {
     width: 100%;
     max-width: 100%;
 }
+
 .ban {
     width: 100%;
     max-width: 100%;
 }
+
     .ban img {
         width: 1110px;
         max-width: 100%;
-        
-    }
+}

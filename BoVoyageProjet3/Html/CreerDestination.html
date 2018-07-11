@@ -95,7 +95,6 @@
                                     <div class="dropdown-divider"></div>
                                 </div>
                             </li>
-
                         </ul>
                     </div>
                 </nav>
@@ -137,10 +136,8 @@
                     Pays: $("#inputPays").val(),
                     Region: $("#inputRegion").val(),
                     Description: $("#inputDescription").val(),
-
                 };
-
-
+                
                 $.ajax({
                     url: 'http://localhost:54186/api/destinations',
                     method: 'POST',
@@ -149,12 +146,9 @@
                         alert(`Nouvelle destination enregitrée ${data.ID}`);
                     }
                 });
-
                 ev.preventDefault();
             });
         });
-
     </script>
-
 </body>
 </html>
