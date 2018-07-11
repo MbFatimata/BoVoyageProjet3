@@ -52,12 +52,6 @@
 
         $(document).ready(function () {
 
-            //$.get("http://localhost:54186/api/agenceVoyages", function (data) {
-            //    for (let agenceVoyage of data) {
-            //        $("#contenu").append(`<tr><td>${agenceVoyage.Nom}</td></tr>`);
-            //    }
-
-            //});
             $.ajax({
                 url: "http://localhost:54186/api/agenceVoyages",
                 methode: "GET",
@@ -69,40 +63,33 @@
                     alert(message);
                 }
             });
-        });
 
-        $(document).ready(function () {
 
-            $("btn btn-default").click(function () {
-                var 
+            $("btn btn-default").submit(function (ev) {
+
                 $.ajax({
                     url: 'http://localhost:54186/api/agenceVoyages',
                     method: 'DELETE',
                     data: obj,
                     success: function (data) {
-                        alert(`Voyage supprimer ${data.ID}`);
+                        alert(`Voyage supprimer ${data.ID}`)
                     }
                 });
-               
+
             });
 
             ev.preventDefault();
         });
-        function removeSousCategories(souscategoriesId = null) {
-            $("removeSousCategoriesBtn").click(function () {
-                var SupSSC = $(this).attr('id');
 
-                $.ajax({
-                    type: 'POST',
-                    url: 'supprimerSousCategorie.php',
-                    data: 'souscategoriesId=' + SupSSC,
-                    success: function (data) 
+        //function removeSousCategories(souscategoriesId = null) {
+        //    $("removeSousCategoriesBtn").click(function () {
+        //        var SupSSC = $(this).attr('id');
+
+        //        $.ajax({
+        //            type: 'POST',
+        //            url: 'supprimerSousCategorie.php',
+        //            data: 'souscategoriesId=' + SupSSC,
+        //            success: function (data) 
     </script>
 </body>
 </html>
-
-<!--$("form").submit(function (ev) {
-             let obj = {
-                 VoyageID: $("#inputNom").val(),
-
-             };-->
