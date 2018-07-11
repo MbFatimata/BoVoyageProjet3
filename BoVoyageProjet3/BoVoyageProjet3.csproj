@@ -100,6 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CSS\BoVoyage.css" />
+    <Content Include="CSS\MenuGeneral.css" />
     <Content Include="Html\AfficherAgenceVoyages.html" />
     <Content Include="Html\AfficherClients.html" />
     <Content Include="Html\AfficherDestinations.html" />
@@ -121,6 +122,7 @@
     <Content Include="Html\RechercherDossierReservation.html" />
     <Content Include="Html\RechercherVoyage.html" />
     <Content Include="Html\RechercherParticipant.html" />
+    <Content Include="Picture\Picture.jpg" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
