@@ -2,14 +2,15 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Créer un client</title>
+    <title>Créer un dossier de réservation</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 </head>
 <body>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <form role="form">
+                <h2>Créer un dossier de réservation</h2>
+                <form role="form">                    
                     <div class="form-group">
                         <label class="control-label">Identifiant Client</label>
                         <select class="form-control" id="inputClientID"></select>
@@ -31,8 +32,13 @@
                         <input type="number" class="form-control" id="inputNumeroCarteBancaire" placeholder="Entrer le numéro de la carte bancaire">
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Assurance</label>
-                        <input type="text" class="form-control" id="inputAssurance" placeholder="Entrer un tarif">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> Cocher la case pour souscrire à l'assurance
+                                </label>
+                            </div>
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-default">Enregistrer</button>
                 </form>
@@ -56,7 +62,7 @@
 
             $.get("http://localhost:54186/api/voyages", function (data) {
                 for (let item of data)
-                    $("#inputVoyageID").append(`<option value="${item.ID}">${item.Voyage}</option>`)
+                    $("#inputVoyageID").append(`<option value="${item.ID}">${item.ID}</option>`)
             }
                         );
 
@@ -67,8 +73,7 @@
                 NombreParticipant: $("#inputNombreParticipant").val(),
                 PrixTotal: $("#inputPrixTotal").val(),
                 NumeroCarteBancaire: $("#inputNumeroCarteBancaire").val(),
-                Assurance: $("#inputAssurance").val(),
-
+                Assurance: $("#inputAssurance").is(':checked'),
             };
 
 
