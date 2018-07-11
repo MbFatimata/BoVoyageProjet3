@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
-<html>
+
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
     <title>Destinations</title>
@@ -19,8 +20,8 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <!--<li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>-->
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            </li>-->
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -143,7 +144,7 @@
                     method: 'GET',
                     success: function (data) {
                         for (let destination of data) {
-                            $("#contenu").append(`<tr><td>${destination.ID}</td><td>${destination.Continent}</td><td> ${destination.Pays}</td><td> ${destination.Region}</td><td> ${destination.Description}</td></tr>` );
+                            $("#contenu").append(`<tr><td>${destination.ID}</td><td>${destination.Continent}</td><td> ${destination.Pays}</td><td> ${destination.Region}</td><td> ${destination.Description}</td></tr>`);
                         }
                     },
                     error: function (message) {
